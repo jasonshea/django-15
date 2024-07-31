@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    ports:
+      - "80:80"
+      - "22:22"
+    volumes:
+      - ./mysite:/var/www/html/mysite
+    environment:
+      - MYSQL_ROOT_PASSWORD=@Password123
+      - MYSQL_DATABASE=MySiteDB
+      - MYSQL_USER=mysite-sa
+      - MYSQL_PASSWORD=@Password123
+    command: /usr/sbin/apache2ctl -D FOREGROUND
+
+  db:
+    image: mysql:5.6
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=@Password123
+      - MYSQL_DATABASE=MySiteDB
+      - MYSQL_USER=mysite-sa
+      - MYSQL_PASSWORD=@Password123

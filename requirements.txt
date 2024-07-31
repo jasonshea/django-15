@@ -1,0 +1,5 @@
+Django==1.5
+MySQL-python==1.2.5
+python-dateutil==2.2
+pydicom==0.9.9
+# gunicorn==19.9.0  # If using Gunicorn to serve the application
